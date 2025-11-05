@@ -42,9 +42,9 @@ else:
     st.error(msg)
 
 
+#----------- Daily Precipitation Summary ----------
 
-
-st.subheader("☁️ Daily Precipitation (48h Forecast)")
+st.subheader("Weather Forecast: Rain & Snow (48h Forecast)")
 
 chart_df = df_smhi.copy()
 chart_df["Datetime"] = pd.to_datetime(chart_df["Date"] + " " + chart_df["Hour"])
@@ -73,7 +73,7 @@ st.dataframe(daily_summary_display, use_container_width=True, hide_index=True)
 
 #----------- Temperature Trend Plot ----------
 
-st.subheader(f"🌡️ Temperature Trend (12Hours) — {selected_city}")
+st.subheader(f"Temperature Trend (12Hours) — {selected_city}")
 
 city_df, msg = collect_smhi_data(lat=latitude, lon=longitude)
 if city_df is not None:
